@@ -1,0 +1,24 @@
+abs(5)
+abs(-5)
+import math
+math.ceil(-35.78)
+math.ceil(-35.78)
+math.e
+math.exp(7)
+math.e**7
+math.floor(16.88)
+math.floor(-16.88)
+math.sqrt(5)
+math.log(5)
+math.log(math.e)
+math.log10(2)
+max(10,40,60)
+min(32,11,5,-20,55,-343)
+round(17.456,2)
+math.modf(11.971)
+math.pow(4,2)
+math.hypot(3,4)
+math.pi
+math.degrees(math.pi)
+math.degrees(-4)
+math.radians(-229.18311805232929)
