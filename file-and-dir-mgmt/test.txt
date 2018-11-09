@@ -1,0 +1,10 @@
+#Writing a file
+
+fileObject = open("C:\\Users\\Jessicah Princess\\Desktop\\sample.txt", "wb+")
+fileObject.write("This is testing of python")
+print(fileObject)
+fileObject.write("This line is by Deepthi")
+print(fileObject)
+fileObject.write("This is by Avinash")
+print(fileObject)
+fileObject.close()
