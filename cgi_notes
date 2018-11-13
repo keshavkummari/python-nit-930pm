@@ -1,0 +1,136 @@
+
+Case Study :
+
+Deploy a Web Application Using Python
+
+Domain Name : keshavkummari.com
+
+Domain Purchsed from : Godaddy.com
+
+Host a Website on Cloud : AWS
+
+#------------------------------------------------------#
+
+Client Side Programming/Scripting : HTML,CSS, JavaScript
+
+Server Side Programming/Scripting : Python
+
+Database : MySQL or MS SQL or Oracle or Mariadb
+
+#------------------------------------------------------#
+
+Code, Build, Deploy on Cloud :
+
+
+AWS Cloud : EC2 instance(Linux Server)
+
+Connect EC2(Linux Server) from MacOS/Windows :
+
+Tools : Cmder, Gitbash
+
+#------------------------------------------------------#
+
+Step-1 : Go to AWS Cloud & Launch a EC2 instance 
+
+Step-2 : Do connect AWS EC2 instance from MacOS/Windows using gitbash or cmder
+
+Step-3 : Download, Install & configure Apache httpd Webserver
+
+# yum install http* --skip-broken -y
+
+# service httpd status
+
+# service httpd start
+
+Step-4 : DocumentRoot : /var/www
+
+# cd /var/www/
+
+# ls -lrt 
+
+1. html
+
+&
+
+2. cgi-bin
+
+Step-5 : Go to html folder and do Client Side Scripting/Programming
+ 
+# cd /var/www/html
+
+# vi index.html
+
+<html>
+<head>
+<title>Python 9:30pm Batch</title>
+</head>
+
+<body bgcolor="olive">
+
+<h1> Welcome to Naresh IT </h1>
+
+<h2> Select your course option </h2>
+
+<form action="/cgi-bin/checkbox.py" method="GET" target="_blank">
+First Name : <input type="" name="FirstName"/>
+Last Name  : <input type="" name="LastName"/>
+<input type="checkbox" name="Python" value="on" /> Python
+<input type="checkbox" name="Perl" value="on" /> Perl
+<input type="submit" value="Click Me!" />
+</form>
+
+</body>
+</html>
+
+
+Step-6 : Go to cgi-bin directory and do Server Side Programming/Scripting:
+
+# cd /var/www/cgi-bin/
+
+# vi checkbox.py
+
+#!/usr/bin/python
+
+# Import modules for CGI handling
+import cgi, cgitb
+
+# Create instance of FieldStorage
+form = cgi.FieldStorage()
+
+# Get data from fields
+if form.getvalue('Python'):
+        course_flag_python = "You have selected Python Course"
+else:
+   course_flag_python = "You have not selected"
+
+if form.getvalue('Perl'):
+    course_flag_perl = "You have selected Perl Course"
+else:
+    course_flag_perl = "You have not selected"
+
+print ("Content-type:text/html\r\n\r\n")
+print ("<html>")
+print ("<head>")
+print ("<title>Checkbox - CGI Program</title>")
+print ("</head>")
+print ("<body>")
+print ("<h2> CheckBox Python is : %s</h2>" % course_flag_python)
+print ("<h2> CheckBox Perl is : %s</h2>" % course_flag_perl)
+print ("</body>")
+print ("</html>")
+
+
+Note : Change the File Permissions as below:
+
+# chmod 755 checkbox.py 
+
+Step-7 : Go to browser and Check the Website Status:
+
+http://54.146.187.92/
+
+
+Browser >> keshavkummari.com >> godaddy.com / keshavkummari.com >> 4 NS records of AWS >> A Record is available on AWS(Route53) >> Ipaddress(EC2 instance)
+
+http://keshavkummari.com
+
+
