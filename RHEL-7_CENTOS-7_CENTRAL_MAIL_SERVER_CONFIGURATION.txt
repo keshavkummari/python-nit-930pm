@@ -1,0 +1,112 @@
+Configure a central mail server in CENTOS-7/RHEL-7:
+***************************************************
+
+Step 1: Install the postfix package (if it is not already there):
+
+# yum install -y postfix*
+
+Step 2: Add a new service to the firewall:
+
+# firewall-cmd --permanent --add-service=smtp
+success
+
+Reload the firewall configuration:
+
+# firewall-cmd --reload
+success
+
+Step 3: Activate the postfix service at boot & Start: 
+
+# systemctl enable postfix
+
+Start the postfix service:
+
+# systemctl start postfix
+
+To check all the running services:
+# systemctl status
+
+Let’s assume that your server is called mail.minnu.com on the 192.168.1.0/24 network.
+
+Step 4: Edit the /etc/postfix/main.cf file and change the following directives:
+
+#75 myhostname = mail.minnu.com
+#83 mydomain = minnu.com
+#99 myorigin = $mydomain
+#113 inet_interfaces = all
+#164 mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+#266 mynetworks = 192.168.234.137/24, 127.0.0.0/8
+
+
+Step 5:  Check the syntax:
+
+# postfix check
+
+Step 6 : Check the non-default configuration:
+
+# postconf -n
+
+Step 7: Set the SELinux allow_postfix_local_write_mail_spool boolean to ‘on‘:
+
+[root@server ~]# getsebool allow_postfix_local_write_mail_spool
+postfix_local_write_mail_spool --> on
+
+If it is not "on" then "on" using below command:
+
+# setsebool -P allow_postfix_local_write_mail_spool on
+
+Step 8 : Restart the postfix configuration:
+
+# systemctl restart postfix
+
+Step 9: Test from a client with the nmap command, it should display: “25/tcp open smtp“:
+
+# yum install -y nmap
+
+# nmap mail.minnu.com
+Starting Nmap 6.40 ( http://nmap.org ) at 2014-08-05 23:41 CEST
+Nmap scan report for mail.minnu.com (192.168.1.24)
+Host is up (0.00076s latency).
+Not shown: 998 filtered ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+25/tcp open  smtp
+MAC Address: 52:54:00:44:23:51 (QEMU Virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 6.16 seconds
+
+Step 10: Alternatively, test from a client with the telnet command:
+
+# yum install -y telnet
+
+# telnet mail.minnu.com 25
+Trying 192.168.1.24...
+Connected to mail.minnu.com.
+Escape character is '^]'.
+220 mail.minnu.com ESMTP Postfix
+HELO client
+250 mail.minnu.com
+quit
+221 2.0.0 Bye
+Connection closed by foreign host.
+
+
+Step 11: On the central mail server, create a user called enrique:
+
+# useradd enrique
+
+Step 12: Then, send a mail to enrique:
+
+# echo "This is a test." | mail -s "Test" enrique@minnu.com
+Note: The echo command introduces the content of the mail. 
+The -s option specifies the mail subject followed by the recipient.
+
+
+Step 13: Finally,  check the user gets his mail:
+# su - me
+$ mail
+Heirloom Mail version 12.5 7/5/10.  Type ? for help.
+"/var/spool/mail/me": 1 message 1 new
+>N  1 root                  Tue Aug  5 23:47  21/785   "Test"
+
+***************** By Keshav Kummari **************************
