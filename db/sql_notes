@@ -1,0 +1,262 @@
+SQL : SQL stands for Structured Query Language.
+-- ========================================================================== --
+# How to use SQL to access and manipulate data in: 
+1. MySQL, 
+2. Mariadb 
+3. SQL Server, 
+4. Access, 
+5. Oracle, 
+6. Sybase, 
+7. DB2, and other database systems.
+
+SQL is a language of database, it includes database creation, deletion, fetching rows and modifying rows etc.
+-- ========================================================================== --
+-- What is SQL?
+SQL is Structured Query Language, which is a computer language for storing, 
+manipulating and retrieving data stored in relational database.
+
+SQL is the standard language for Relation Database System. 
+
+All relational database management systems like MySQL, MS Access, Oracle, Sybase, Informix, postgres and SQL Server use SQL as standard database language.
+
+Also, they are using different dialects, such as:
+MS SQL Server using T-SQL,
+Oracle using PL/SQL,
+MS Access version of SQL is called JET SQL (native format) etc.
+-- ========================================================================== --
+--Why SQL?
+1. Allows users to access data in relational database management systems.
+2. Allows users to describe the data.
+3. Allows users to define the data in database and manipulate that data.
+4. Allows to embed within other languages using SQL modules, libraries & pre-compilers.
+5. Allows users to create and drop databases and tables.
+6. Allows users to create view, stored procedure, functions in a database.
+7. Allows users to set permissions on tables, procedures, and views
+-- ========================================================================== --
+--History:
+1970 -- Dr. Edgar F. "Ted" Codd of IBM is known as the father of relational databases. 
+		He described a relational model for databases.
+
+1974 -- Structured Query Language appeared.
+
+1978 -- IBM worked to develop Codd's ideas and released a product named System/R.
+
+1986 -- IBM developed the first prototype of relational database and standardized by ANSI. 
+        The first relational database was released by Relational Software and its later becoming Oracle.
+-- ========================================================================== --		
+--SQL Process:
+When you are executing an SQL command for any RDBMS, 
+the system determines the best way to carry out your request and 
+SQL engine figures out how to interpret the task.
+
+There are various components included in the process. 
+
+These components are 
+
+1. Query Dispatcher, 
+2. Optimization Engines, 
+3. Classic Query Engine and 
+4. SQL Query Engine, etc. 
+
+Classic query engine handles all non-SQL queries but SQL query engine wont handle logical files.
+
+--Following is a simple diagram showing SQL Architecture:		
+
+SQL Query
+|
+|
+Query Language <-- Parser + Optimizer
+|
+|
+DBMS Engine <-- File Manager + Transaction Manager
+|
+|
+Physical Database
+
+-- ========================================================================== --
+SQL Commands:
+
+DDL, DML, DQL, DCL, & TCL in SQL
+
+--1. Data Definition Language (DDL)
+
+The commands of SQL that are used to create database objects, alter the structure of the database objects and delete database objects from database are collectively called as DDL. 
+
+Commands: Create, Alter , Drop, Truncate, Rename and Comment Commands.
+
+Create: Create command is used to create database and its Objects like tables, index, stored procedure, views , triggers, functions and etc.
+
+Example: To create Employee table.
+
+create table tblEmployee(
+Id int primary key identity(1,1) not null,
+Name nvarchar(50) ,
+Gender nvarchar(50) ,
+Salary int ,
+DepartmentId int ,
+)
+
+Alter: Alter command is used to create database and its Objects.
+
+Drop: Drop command is used to delete objects from database.
+
+Truncate: Trunctae Table command is used to remove all records from a table, including all spaces allocated for records are removed.
+
+Rename: It is used to rename the objects.
+
+Comment: // -> Single line Comments, /* --Multi Line Comments-- */ used to comment the sql statements. 
+
+--2. Data Manipulation Language (DML)
+
+The commands of SQL that are used to insert data into the database, 
+modify the data of the database and to delete data from the database are collectively called as DML. 
+
+Commands : Insert, Update and Delete.
+
+Insert: To insert date into a table.
+
+Update: To update the existing data in a table.
+
+Delete: delete all records from a table. 
+
+--3. Data Query Language (DQL) or Data Retrive Language
+
+The commands of SQL that are used to retrieve data from the database are collectively called as DQL. 
+So all Select statements comes under DQL.
+
+Select: To retreive data from the database table. 
+
+--4. Data Control Language (DCL)
+
+The commands of SQL that are used to control the access to data stored in the database are 
+collectively called as DCL and examples include Grant and Revoke.
+
+Grant: All users access previleges to database.
+
+Revoke: Withdraw users access previleges given by using the Grant command.
+
+--5. Transaction Control Language (TCL)
+
+The commands of SQL that are used to control the transactions made against the database 
+are collectively called as TCL and examples include Commit, Rollback and Savepoint.
+
+Commit: Commit is used for the permanent changes. When we use Commit in any query then the change made by that query will be permanent and visible. We can't Rollback after the Commit.
+
+Rollback: Rollback is used to undo the changes made by any command but only before a commit is done. We can't Rollback data which has been committed in the database with the help of the commit keyword.
+
+Save point: creates points within groups of transactions in which to ROLLBACK.
+-- ========================================================================== --
+
+--What is RDBMS?
+RDBMS stands for Relational Database Management System. 
+RDBMS is the basis for SQL, and for all modern database systems like 
+MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.
+
+A Relational database management system (RDBMS) is a database management system (DBMS) 
+that is based on the relational model as introduced by E. F. Codd.
+-- ========================================================================== --
+--What is table?
+The data in RDBMS is stored in database objects called tables. 
+The table is a collection of related data entries and it consists of columns and rows.
+
+Remember, a table is the most common and simplest form of data storage in a relational database. 
+
+Following is the example of a CUSTOMERS table:
+
+
+-- ========================================================================== --
+Data Types :
+
+Properly defining the fields in a table is important to the overall optimization of your database. 
+
+You should use only the type and size of field you really need to use; 
+
+don't define a field as 10 characters wide if you know you're only going to use 2 characters. 
+
+These types of fields (or columns) are also referred to as data types, 
+after the type of data you will be storing in those fields.
+
+MySQL uses many different data types broken into three categories: numeric, date and time, and string types.
+-- ========================================================================== --
+Numeric Data Types:
+MySQL uses all the standard ANSI SQL numeric data types, 
+so if you are coming to MySQL from a different database system, these definitions will look familiar to you. 
+
+The following list shows the common numeric data types and their descriptions:
+--------------------------------------------------------------------------------
+1. INT - A normal-sized integer that can be signed or unsigned. 
+If signed, the allowable range is from -2147483648 to 2147483647. 
+If unsigned, the allowable range is from 0 to 4294967295. 
+You can specify a width of up to 11 digits.
+--------------------------------------------------------------------------------
+TINYINT - A very small integer that can be signed or unsigned. 
+If signed, the allowable range is from -128 to 127. If unsigned, the allowable range is from 0 to 255. 
+You can specify a width of up to 4 digits.
+--------------------------------------------------------------------------------
+SMALLINT - A small integer that can be signed or unsigned. 
+If signed, the allowable range is from -32768 to 32767. If unsigned, the allowable range is from 0 to 65535. 
+You can specify a width of up to 5 digits.
+--------------------------------------------------------------------------------
+MEDIUMINT - A medium-sized integer that can be signed or unsigned. 
+If signed, the allowable range is from -8388608 to 8388607. 
+If unsigned, the allowable range is from 0 to 16777215. You can specify a width of up to 9 digits.
+--------------------------------------------------------------------------------
+BIGINT - A large integer that can be signed or unsigned. 
+If signed, the allowable range is from -9223372036854775808 to 9223372036854775807. 
+If unsigned, the allowable range is from 0 to 18446744073709551615. 
+You can specify a width of up to 20 digits.
+--------------------------------------------------------------------------------
+FLOAT(M,D) - A floating-point number that cannot be unsigned. 
+You can define the display length (M) and the number of decimals (D). 
+This is not required and will default to 10,2, where 2 is the number of decimals and 10 
+is the total number of digits (including decimals). 
+Decimal precision can go to 24 places for a FLOAT.
+--------------------------------------------------------------------------------
+DOUBLE(M,D) - A double precision floating-point number that cannot be unsigned. 
+You can define the display length (M) and the number of decimals (D). 
+This is not required and will default to 16,4, where 4 is the number of decimals. 
+Decimal precision can go to 53 places for a DOUBLE. 
+REAL is a synonym for DOUBLE.
+--------------------------------------------------------------------------------
+DECIMAL(M,D) - An unpacked floating-point number that cannot be unsigned. 
+In unpacked decimals, each decimal corresponds to one byte. 
+Defining the display length (M) and the number of decimals (D) is required. 
+NUMERIC is a synonym for DECIMAL.
+-- ========================================================================== --
+Date and Time Types:
+
+The MySQL date and time datatypes are:
+
+DATE - A date in YYYY-MM-DD format, between 1000-01-01 and 9999-12-31. For example, December 30th, 1973 would be stored as 1973-12-30.
+--------------------------------------------------------------------------------
+DATETIME - A date and time combination in YYYY-MM-DD HH:MM:SS format, between 1000-01-01 00:00:00 and 9999-12-31 23:59:59. For example, 3:30 in the afternoon on December 30th, 1973 would be stored as 1973-12-30 15:30:00.
+--------------------------------------------------------------------------------
+TIMESTAMP - A timestamp between midnight, January 1, 1970 and sometime in 2037. This looks like the previous DATETIME format, only without the hyphens between numbers; 3:30 in the afternoon on December 30th, 1973 would be stored as 19731230153000 ( YYYYMMDDHHMMSS ).
+--------------------------------------------------------------------------------
+TIME - Stores the time in HH:MM:SS format.
+--------------------------------------------------------------------------------
+YEAR(M) - Stores a year in 2-digit or 4-digit format. If the length is specified as 2 (for example YEAR(2)), YEAR can be 1970 to 2069 (70 to 69). If the length is specified as 4, YEAR can be 1901 to 2155. The default length is 4.
+-- ========================================================================== --
+# String Types:
+
+Although numeric and date types are fun, most data you will store will be in string format. 
+This list describes the common string datatypes in MySQL.
+--------------------------------------------------------------------------------
+CHAR(M) - A fixed-length string between 1 and 255 characters 
+in length (for example CHAR(5)), right-padded with spaces to the specified length when stored. Defining a length is not required, but the default is 1.
+--------------------------------------------------------------------------------
+VARCHAR(M) - A variable-length string between 1 and 255 characters in length; 
+for example VARCHAR(25). 
+You must define a length when creating a VARCHAR field.
+--------------------------------------------------------------------------------
+BLOB or TEXT - A field with a maximum length of 65535 characters. BLOBs are "Binary Large Objects" and are used to store large amounts of binary data, such as images or other types of files. Fields defined as TEXT also hold large amounts of data; the difference between the two is that sorts and comparisons on stored data are case sensitive on BLOBs and are not case sensitive in TEXT fields. You do not specify a length with BLOB or TEXT.
+--------------------------------------------------------------------------------
+TINYBLOB or TINYTEXT - A BLOB or TEXT column with a maximum length of 255 characters. You do not specify a length with TINYBLOB or TINYTEXT.
+--------------------------------------------------------------------------------
+MEDIUMBLOB or MEDIUMTEXT - A BLOB or TEXT column with a maximum length of 16777215 characters. You do not specify a length with MEDIUMBLOB or MEDIUMTEXT.
+--------------------------------------------------------------------------------
+LONGBLOB or LONGTEXT - A BLOB or TEXT column with a maximum length of 4294967295 characters. You do not specify a length with LONGBLOB or LONGTEXT.
+--------------------------------------------------------------------------------
+ENUM - An enumeration, which is a fancy term for list. When defining an ENUM, you are creating a list of items from which the value must be selected (or it can be NULL). For example, if you wanted your field to contain "A" or "B" or "C", you would define your ENUM as ENUM ('A', 'B', 'C') and only those values (or NULL) could ever populate that field.
+-- ========================================================================== --
+

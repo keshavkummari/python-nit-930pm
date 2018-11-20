@@ -1,0 +1,56 @@
+STEP-1 :
+/* Create a schema */
+CREATE DATABASE course;
+
+CREATE: CREATE command IS used TO CREATE DATABASE AND its Objects LIKE  
+
+1. TABLES, 
+2. INDEX, 
+3. STORED PROCEDURE, 
+4. views , 
+5. TRIGGERS, 
+6. functions AND etc.
+
+STEP-2:
+/* Create a table under course schema */
+CREATE TABLE `course`.python(Id INT,FNAME VARCHAR(50),LNAME VARCHAR(50),Course VARCHAR(50) ,DOJ DATE,Fee INT);
+
+STEP-3:
+/* Insert the data with the help of insert query */
+INSERT INTO `course`.python(id,FNAME,LNAME,Course,DOJ,Fee) VALUES (1,'Ronnie','Ashirvad','Python','2017-01-20',1000);
+
+STEP-4:
+/* Loaded the data with the help of LOAD QUERY from Windows */
+LOAD DATA LOCAL INFILE 'C:\\Users\\Jessicah Princess\\Desktop\\course_data.txt' INTO TABLE course.python
+(Id,FNAME,LNAME,Course,DOJ,Fee)
+
+STEP-5:
+/* Loaded the data with the help of LOAD QUERY  from Linux/Unix Server */
+LOAD DATA LOCAL INFILE '/root/intel.txt' INTO TABLE course.python
+(Id,FNAME,LNAME,Course,DOJ,Fee)
+
+STEP-6:
+/* Query the table or retrive the table */
+SELECT * FROM course.python;
+
+STEP-7:
+/* Update the values as per the requirement */
+UPDATE course.python SET doj='2017-03-24' WHERE doj='0000-00-00'
+
+STEP-8:
+/* Query the table or retrive the table */
+SELECT * FROM course.python;
+
+STEP-9:
+/* Query a specific student details */
+SELECT * FROM course.python WHERE fname='jessi'
+# or
+SELECT * FROM course.python WHERE fname LIKE 'jessi'
+
+STEP-10:
+/* Update the user course column as per the requirement */
+UPDATE course.python SET course='Django' WHERE course='SQL'
+
+STEP-11:
+/* Cross check the course details of the student */
+SELECT * FROM course.python WHERE fname LIKE 'jessi'
