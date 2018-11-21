@@ -1,0 +1,11 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<collection shelf="New Students">
+<course title="Python Programming">
+   <MONITORINGTOOLS>Nagios  Or   Bigbrother</MONITORINGTOOLS>
+   <TICKETINGTOOLS>RT (Request Tracker) or OTRS (Open Ticket Request System)</TICKETINGTOOLS>
+   <BUGTRACKINGTOOLS>JIRA  Or Bugzilla</BUGTRACKINGTOOLS>
+   <APPLICATIONNETWORKMONITORINGTOOLS>Zenoss  Or Splunk </APPLICATIONNETWORKMONITORINGTOOLS>
+   <INTERVIEWQUESTIONS>Linux</INTERVIEWQUESTIONS>
+</course>
+</collection>
