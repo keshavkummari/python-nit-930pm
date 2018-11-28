@@ -1,0 +1,38 @@
+
+
+1. Object
+
+2. Class
+
+3. Method
+
+4. Inheritance
+
+5. Polymorphism
+
+6. Data Abstraction
+
+7. Encapsulation
+
+
+1. Object :  Object is an entity that has state and behavior.
+
+Physical and Logical 
+
+Physical : Laptop, Computer Remote, Smartphone, Chair etc.....
+
+Objects : Attributes and Methods
+
+Functions : Built-in attributes __doc__ which returns the doc string 
+
+2. Class : Class can be defined as collection of objects.
+
+class EmployeeDetails():
+	Constructor
+
+	Function/Method
+
+	Function/Method
+
+3. Method :  Method is a function that is associated with an object. 
+
